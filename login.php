@@ -21,8 +21,19 @@ if (isset($_POST['submitButton'])) {
         );
 
         if ($success) {
+            /**
+             * config.php page is responsible for starting a session
+             */
+            $_SESSION['userLoggedIn'] = $username;
             header("Location: index.php");
         }
+    }
+}
+
+function getInputValue($name)
+{
+    if (isset($_POST[$name])) {
+        echo $_POST[$name];
     }
 }
 ?>
@@ -47,7 +58,7 @@ if (isset($_POST['submitButton'])) {
             </div>
             <form action="#" method="post">
                 <?= $account->getError(Constants::$loginFailed) ?>
-                <input type="text" name="username" placeholder="username" required>
+                <input type="text" name="username" placeholder="username" value="<?php getInputValue('username') ?>" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" name="submitButton" value="Submit">
             </form>
