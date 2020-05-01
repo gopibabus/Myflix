@@ -1,7 +1,9 @@
 <?php
 require_once './includes/config.php';
 require_once './includes/classes/PreviewProvider.php';
+require_once './includes/classes/CategoryContainers.php';
 require_once './includes/classes/Entity.php';
+require_once './includes/classes/EntityProvider.php';
 
 
 if (!isset($_SESSION['userLoggedIn'])) {
@@ -16,7 +18,7 @@ $userLoggedIn = $_SESSION['userLoggedIn'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MyFlix</title>
+    <title>MyFlix</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/078c5ccadb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style/style.css">

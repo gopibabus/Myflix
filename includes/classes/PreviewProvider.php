@@ -1,5 +1,5 @@
 <?php
-
+ini_set('display_errors', 1);
 class PreviewProvider
 {
     private $con, $username;
@@ -21,7 +21,7 @@ class PreviewProvider
         $preview = $entity->getPreview();
         $thumbnail = $entity->getThumbnail();
 
-        $previewMarkup =  <<< PREVIEW
+        return  <<< PREVIEW
 
         <div class="previewContainer">
             <img src='$thumbnail' class='previewImage' hidden>
@@ -43,16 +43,33 @@ class PreviewProvider
         </div>
 
 PREVIEW;
-
-        echo $previewMarkup;
     }
 
+    public function createEntityPreviewSquare(Entity $entity) {
+        $id = $entity->getId();
+        $thumbnail = $entity->getThumbnail();
+        $name = $entity->getName();
+
+        return <<< PREVIEW
+            <a href="entity.php?id=$id">
+                <div class="previewContainer small">
+                    <img src="$thumbnail" title="$name">
+                </div>
+            </a>
+PREVIEW;
+        
+    }
+
+
+    
     private function randomEntity()
     {
-        $query = $this->con->prepare("SELECT * FROM entities ORDER BY RAND() LIMIT 1");
-        $query->execute();
-        $row = $query->fetch(PDO::FETCH_ASSOC);
+        try {
+            $entity = EntityProvider::getEntities($this->con, null, 1);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
 
-        return new Entity($this->con, $row);
+        return $entity[0];
     }
 }
