@@ -4,3 +4,12 @@
 	font-weight: 400;
 	text-align: center;
 }
+
+.errorBanner {
+	color: #fff;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+}

@@ -95,3 +95,11 @@ button i {
 	overflow-y: hidden;
 	white-space: nowrap;
 }
+
+.previewCategories {
+	padding: 0 50px;
+}
+
+.previewCategories.noScroll .category .entities {
+white-space: normal;
+}
