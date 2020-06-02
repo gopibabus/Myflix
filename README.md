@@ -1,3 +1,3 @@
-## MYFLIX
+## MYFLIX - Netflix Clone
 
-> This is the netflix clone to host my own videos.
+> This is the netflix clone based on LAMP Stack
