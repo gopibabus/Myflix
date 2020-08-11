@@ -1,3 +1,3 @@
-## MYFLIX - Netflix Clone
+![MYFLIX - Netflix Clone](./assets/images/banner.png)
 
-> This is the netflix clone based on LAMP Stack
+> 🤷‍♂️ This is **a netflix clone** project constructed on **LAMP Stack**!!
